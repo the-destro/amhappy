@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import json
-from pycouchdb.exceptions import NotFound
 from amhappy.utility.happinstance_db import HappinstanceDB
 from compose.cli.docker_client import docker_client
 from compose.config import from_dictionary
@@ -22,14 +21,13 @@ def happinstance_exists(application, name, happinstance_db, request):
     :param request: the request to put the validated objects in
     :type request: Request
     """
-    try:
-        happinstance = _fetch_happinstance(application, name, happinstance_db)
-        request.validated['config'] = happinstance['config']
-        request.validated['project'] = _fetch_project(name,
-                                                      request.validated
-                                                      ['config'])
-    except NotFound:
+    happinstance = _fetch_happinstance(application, name, happinstance_db)
+    if happinstance is None:
         raise GeneralError("Happinstance Does Not Exist")
+    request.validated['config'] = happinstance['config']
+    request.validated['project'] = _fetch_project(name,
+                                                  request.validated
+                                                  ['config'])
 
 
 def happinstance_unique(application, name, happinstance_db, request):
@@ -45,12 +43,9 @@ def happinstance_unique(application, name, happinstance_db, request):
     :param request: Not Used but here for uniformity
     :type request: Request
     """
-    try:
-        happinstance = _fetch_happinstance(application, name, happinstance_db)
-        if happinstance:
-            raise GeneralError("Happinstance already exists")
-    except NotFound:
-        pass
+    happinstance = _fetch_happinstance(application, name, happinstance_db)
+    if happinstance:
+        raise GeneralError("Happinstance already exists")
 
 
 def valid_happinstance(application, name, happinstance_db, request):
@@ -105,7 +100,10 @@ def validator_factory(validator):
 
 
 def _fetch_happinstance(application, name, happinstance_db):
-    return happinstance_db[application].get(name)
+    if application in happinstance_db:
+        return happinstance_db[application].get(name)
+    else:
+        return None
 
 
 def _fetch_project(name, config):

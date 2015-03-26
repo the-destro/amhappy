@@ -38,6 +38,10 @@ angular
             templateUrl: 'views/createhappinstance.html',
             controller: 'CreatehappinstanceCtrl'
         })
+        .when('/manage_vhosts', {
+            templateUrl: 'views/managevhosts.html',
+            controller: 'ManagevhostsCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });

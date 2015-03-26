@@ -12,19 +12,8 @@ config_info = Service(name='config_info', path='/config_options',
 @config_info.get()
 def get_info(request):
     settings = request.registry.settings
-    vhosts = _get_vhosts_dict(settings)
     code_dirs = _get_code_dirs(settings['code_root'])
-    return {'vhosts': vhosts, 'code_dirs': code_dirs}
-
-
-def _get_vhosts_dict(settings):
-    vhosts = {}
-    for key, value in settings.items():
-        if 'vhosts' in key:
-            site = key.split('_')[0]
-            vhosts[site] = {'vhosts': value.split('\n')}
-    return vhosts
-
+    return {'code_dirs': code_dirs}
 
 def _get_code_dirs(root_directory):
     real_root = get_real_path(root_directory)

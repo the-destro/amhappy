@@ -8,13 +8,13 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('CreatehappinstanceCtrl', function ($scope, $location, Application, Happinstance, ConfigOptions) {
+  .controller('CreatehappinstanceCtrl', function ($scope, $location, Application, Happinstance, ConfigOptions, Vhosts) {
         Application.query(function(applications) {
             $scope.applications = applications;
         });
         $scope.environments = {};
         $scope.selectedApplication = '';
-        $scope.name = ''
+        $scope.name = '';
         $scope.toJson = angular.toJson;
         $scope.isDefined = angular.isDefined;
         $scope.config_options = ConfigOptions.get();
@@ -22,7 +22,7 @@ angular.module('dashboardApp')
             function(selectedApplication) {
                 if (selectedApplication != "") {
                     $scope.config = Application.get({application: selectedApplication});
-                    $scope.vhosts_available = $scope.config_options.vhosts[selectedApplication];
+                    $scope.vhosts_available = Vhosts.get({'application': selectedApplication});
                 }
             });
         $scope.submit = function(){

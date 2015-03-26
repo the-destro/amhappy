@@ -28,7 +28,7 @@
       <ul class="nav navbar-nav">
         <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li>
         <li data-match-route="/create_happinstance"><a href="#/create_happinstance">Create</a></li>
-        <li data-match-route="/page-two.*"><a href="#/page-two/sub-a">Page Two</a></li>
+        <li data-match-route="/manage_vhosts"><a href="#/manage_vhosts">Manage Vhosts</a></li>
       </ul>
     </div>
 
@@ -66,12 +66,15 @@
         <script src="scripts/controllers/happinstancedetail.js"></script>
         <script src="scripts/controllers/createhappinstance.js"></script>
         <script src="scripts/services/configoptions.js"></script>
+        <script src="scripts/services/vhosts.js"></script>
+        <script src="scripts/controllers/managevhosts.js"></script>
         <!-- endbuild -->
   <script>
         angular.module('dashboardApp').value('service_root', '');
         angular.module('dashboardApp').value('happinstance_url', '/happinstances');
         angular.module('dashboardApp').value('application_url', '/applications');
         angular.module('dashboardApp').value('config_url', '/config_options');
+        angular.module('dashboardApp').value('vhosts_url', '/vhosts');
     </script>
 </body>
 </html>
