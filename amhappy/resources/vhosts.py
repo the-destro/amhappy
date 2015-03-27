@@ -3,6 +3,7 @@ import json
 from cornice.resource import resource, view
 from amhappy.utility.happinstance_db import HappinstanceDB
 
+
 @resource(collection_path='/vhosts', path='/vhosts/{application}',
           cors_enabled=True, cors_origins=('*',))
 class Vhosts(object):
@@ -31,7 +32,7 @@ class Vhosts(object):
         else:
             # if the application hasn't been created yet in the store, create
             # it
-            self.happinstancedb.create(application_name)
+            self.happinstancedb.server.create(application_name)
             return {}
 
     def _save_vhosts(self, vhosts):
