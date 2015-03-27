@@ -1,0 +1,1 @@
+<div class="row marketing"> <div ng-repeat="(application, instances) in happinstances"> <h4>{{application}}</h4> <div ng-repeat="instance in instances"> <p>{{instance._id}}</p> <p>Status: {{instance.status}}</p> <p><a href="#/happinstance_detail/{{application}}/{{instance._id}}">Details</a> </p> </div> </div> </div>

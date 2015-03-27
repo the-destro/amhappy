@@ -1,0 +1,1 @@
+<p>Application: {{application}} Name: {{name}}</p> <p>Status: <a ng-click="toggleStatus(detail.status)"> {{detail.status}}</a></p> <button ng-click="delete()">REMOVE?</button> <div ng-repeat="(container, config) in detail.config"> <ul> <p>{{container}}</p> <pre>{{toJson(config, 2)}}</pre> </ul> </div>
