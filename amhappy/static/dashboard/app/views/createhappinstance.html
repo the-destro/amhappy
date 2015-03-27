@@ -15,7 +15,7 @@ Select an Application:
                     </span>
                     <span ng-if="variable.indexOf('HOST') > -1">
                         {{variable}}
-                        <select ng-model="environments[image][variable]" ng-options="vhost for (vhost, status) in vhosts_available"></select>
+                        <select ng-model="environments[image][variable]" ng-options="vhost as vhost for (vhost, status) in vhosts_available"></select>
                     </span>
                 </div>
         </div>

@@ -33,5 +33,7 @@ class HappinstanceDB(object):
         for db_name in dbs:
             all_happinstances[db_name] = []
             for result in self[db_name].view('_all_docs', include_docs=True):
-                all_happinstances[db_name].append(result.doc)
+                # remove the special vhosts entry as it is not an application
+                if result.id != 'vhosts':
+                    all_happinstances[db_name].append(result.doc)
         return all_happinstances

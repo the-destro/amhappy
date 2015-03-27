@@ -69,7 +69,7 @@ class Happinstance(object):
         self._get_valid_objects()
         self.project.stop()
         self.project.remove_stopped()
-        self.happinstancedb[self.application].delete(self.name)
+        del self.happinstancedb[self.application][self.name]
 
     @view(renderer='json', validators=[validator_factory('exists'),
                                        validator_factory('valid_action')])
