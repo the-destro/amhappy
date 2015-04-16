@@ -3,7 +3,6 @@ Select an Application:
             <option value="">---------</option>
         </select>
 <div class="container">
-<pre>{{toJson(config, 4)}}</pre>
     <form ng-submit="submit()">
         <div ng-repeat="(image, settings) in config">
                 <div ng-repeat="(variable, value) in settings.environment">
@@ -24,4 +23,5 @@ Select an Application:
             <input type="submit" id="submit" value="Submit" />
         </div>
     </form>
+    <pre>{{toJson(config, 4)}}</pre>
 </div>

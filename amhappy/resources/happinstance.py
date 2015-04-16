@@ -56,8 +56,8 @@ class Happinstance(object):
         # name
         happinstance = {'_id': self.name,
                         'config': self.config, 'status': 'on'}
-        self.happinstancedb[self.application].save(happinstance)
         self.project.up()
+        self.happinstancedb[self.application].save(happinstance)
         return {'status': 'ok'}
 
     @view(renderer='json', validators=validator_factory('exists'))

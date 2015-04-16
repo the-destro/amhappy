@@ -8,11 +8,12 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('HappinstancedetailCtrl', function ($scope, $routeParams, $location, Happinstance) {
+  .controller('HappinstancedetailCtrl', function ($scope, $routeParams, $location, Happinstance, PortInfo) {
         var location = {application:$routeParams.application,
                         name:$routeParams.name},
             detail_refresh = function() {
                 $scope.detail = Happinstance.get(location);
+                $scope.port_info = PortInfo.get(location);
             };
         $scope.name = $routeParams.name;
         $scope.application = $routeParams.application;
@@ -26,6 +27,7 @@ angular.module('dashboardApp')
             }
         };
         $scope.detail = Happinstance.get(location);
+        $scope.port_info = PortInfo.get(location);
         $scope.delete = function(){
             Happinstance.delete(location, function() {
                 $location.url('/');

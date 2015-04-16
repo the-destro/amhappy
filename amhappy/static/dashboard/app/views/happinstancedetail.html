@@ -1,6 +1,13 @@
 <p>Application: {{application}}   Name: {{name}}</p>
 <p>Status: <a ng-click="toggleStatus(detail.status)"> {{detail.status}}</a></p>
+<p>Real Container Names and Ports</p>
+<div ng-repeat="(container, port) in port_info">
+    <ul>
+        <p>{{container}}: {{port}}</p>
+    </ul>
+</div>
 <button ng-click="delete()">REMOVE?</button>
+
 <div ng-repeat="(container, config) in detail.config">
     <ul>
         <p>{{container}}</p>
