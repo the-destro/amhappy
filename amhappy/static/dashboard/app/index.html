@@ -1,47 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html class="no-js">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title></title>
+
+    <title>Docker Dashboard</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <meta name="viewport" content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
-    <!-- endbower -->
+    <!--link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /-->
+    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" type="text/css"><!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="dashboardApp">
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'><!-- endbuild -->
+</head>
+
+<body ng-app="dashboardApp">
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <header>
+        <div class="navbar navbar-default container" role="navigation" bs-navbar="">
+            <h1><a href="#/">Cars SM - Docker Dashboard</a></h1>
+    
+            <ul class="nav navbar-nav">
+                <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li>
 
-    <div class="navbar navbar-default" role="navigation" bs-navbar>
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#/">Docker Dashboard</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li>
-        <li data-match-route="/create_happinstance"><a href="#/create_happinstance">Create</a></li>
-        <li data-match-route="/manage_vhosts"><a href="#/manage_vhosts">Manage Vhosts</a></li>
-      </ul>
+                <li data-match-route="/create_happinstance"><a href="#/create_happinstance">Create Happinstance</a></li>
+
+                <li data-match-route="/manage_vhosts"><a href="#/manage_vhosts">Manage Vhosts</a></li>
+            </ul>
+        </div>
+    </header>
+    
+
+    <div class="main container">
+        <div ng-view=""></div>
     </div>
 
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
+    <footer>
+        <div class="container">
+            <img src="images/albertdealwithit.gif"/>
+            <p>Deal with it.</p>
+        </div>
+    </footer>
+    
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

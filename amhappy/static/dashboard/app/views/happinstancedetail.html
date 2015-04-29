@@ -1,16 +1,15 @@
-<p>Application: {{application}}   Name: {{name}}</p>
-<p>Status: <a ng-click="toggleStatus(detail.status)"> {{detail.status}}</a></p>
-<p>Real Container Names and Ports</p>
-<div ng-repeat="(container, port) in port_info">
-    <ul>
-        <p>{{container}}: {{port}}</p>
-    </ul>
-</div>
-<button ng-click="delete()">REMOVE?</button>
+<h2>{{name}} Details</h2>
+<p>Application: <strong>{{application}}</strong></p>
+<p>Name: <strong>{{name}}</strong> <button ng-click="delete()" class="btn_remove">Remove?</button></p>
+<p>Status: <a class="status_toggle" ng-click="toggleStatus(detail.status)"> {{detail.status}}</a></p>
 
-<div ng-repeat="(container, config) in detail.config">
-    <ul>
-        <p>{{container}}</p>
-        <pre>{{toJson(config, 2)}}</pre>
-    </ul>
+
+<h3>Real Container Names and Ports</h3>
+<ul class="details_namesports">
+    <li ng-repeat="(container, port) in port_info">{{container}}: {{port}}</li>
+</ul>
+
+<div ng-repeat="(container, config) in detail.config" class="details_config">
+    <h4>{{container}}</h4>
+    <pre>{{toJson(config, 2)}}</pre>
 </div>
