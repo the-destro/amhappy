@@ -203,7 +203,7 @@ pre {
 .btn_remove {
     cursor: pointer;
     display: inline-block;
-    background-color: #42AF58;;
+    background-color: #333;
     padding: .35em 1em;
     border-radius: 1em;
     color: #fff;
