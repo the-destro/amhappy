@@ -13,8 +13,9 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <!-- endbuild -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'><!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
 </head>
 
 <body ng-app="dashboardApp">
@@ -24,7 +25,7 @@
     <header>
         <div class="navbar navbar-default container" role="navigation" bs-navbar="">
             <h1><a href="#/">Cars SM - Docker Dashboard</a></h1>
-    
+
             <ul class="nav navbar-nav">
                 <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li>
 
@@ -34,7 +35,7 @@
             </ul>
         </div>
     </header>
-    
+
 
     <div class="main container">
         <div ng-view=""></div>
@@ -46,7 +47,7 @@
             <p>Deal with it.</p>
         </div>
     </footer>
-    
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
