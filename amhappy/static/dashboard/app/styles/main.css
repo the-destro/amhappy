@@ -190,6 +190,11 @@ pre {
     background: #2bbf74;
 }
 
+.app_wrap:nth-child(5) .app_title,
+.app_wrap:nth-child(5) .instance_wrap a:hover {
+    background: #ffa500;
+}
+
 .instance_wrap a span {
     display: block;
     font-size: .7em;
