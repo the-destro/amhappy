@@ -6,7 +6,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as f:
     README = f.read()
 
-requires = ['cornice', 'waitress', 'pyramid', 'pyramid_debugtoolbar',
+requires = ['cornice<2', 'waitress', 'pyramid', 'pyramid_debugtoolbar',
             'docker-compose<1.4.0', 'CouchDB']
 
 setup(name='amhappy',
