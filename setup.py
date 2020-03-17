@@ -7,7 +7,7 @@ with open(os.path.join(here, 'README.rst')) as f:
     README = f.read()
 
 requires = ['cornice<2', 'waitress', 'pyramid', 'pyramid_debugtoolbar',
-            'docker-compose<1.4.0', 'CouchDB']
+            'docker-compose<1.4.0', 'CouchDB', 'setuptools==28.8.0']
 
 setup(name='amhappy',
       version=0.1,
