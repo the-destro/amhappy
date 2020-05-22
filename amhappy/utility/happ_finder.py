@@ -5,7 +5,9 @@ import os
 from os.path import expanduser, expandvars, abspath
 
 import logging
+
 logger = logging.getLogger('utility')
+
 
 def fetch_happs(happ_root, happ_config_file):
     """

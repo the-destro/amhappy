@@ -3,6 +3,8 @@ from cornice.resource import resource, view
 from amhappy.utility.validators import validator_factory
 from amhappy.utility.happinstance_db import HappinstanceDB
 
+import logging
+logger=logging.getLogger('api')
 
 @resource(collection_path='/happinstances',
           path='/happinstances/{application}/{name}',

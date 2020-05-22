@@ -3,6 +3,8 @@ import json
 from cornice.resource import resource, view
 from amhappy.utility.happinstance_db import HappinstanceDB
 
+import logging
+logger=logging.getLogger('api')
 
 @resource(collection_path='/vhosts', path='/vhosts/{application}',
           cors_enabled=True, cors_origins=('*',))
@@ -47,6 +49,7 @@ class Vhosts(object):
         :rtype:
         """
         vhosts = self._get_application_vhosts()
+        logger.info(vhosts)
         # remove the _rev and _id fields
         vhosts.pop('_id')
         vhosts.pop('_rev')
