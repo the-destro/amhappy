@@ -1,79 +1,84 @@
 <!DOCTYPE html>
-
 <html class="no-js" lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <title>Am Happy - Happily Spin Up Your Multi-Container Apps</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css" type="text/css">
-    <!-- endbuild -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
+  <title>Am Happy - Happily Spin Up Your Multi-Container Apps</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <link
+    href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300'
+    rel='stylesheet'>
+  <link
+    href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300'
+    rel='stylesheet'>
 </head>
 
 <body ng-app="dashboardApp">
-    <header>
-        <div class="navbar navbar-default container" role="navigation" bs-navbar="">
-            <h1><a href="#/">Cars SM Am Happy</a></h1>
-            <ul class="nav navbar-nav">
-                <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li>
-                <li data-match-route="/create_happinstance"><a href="#/create_happinstance">Create Happinstance</a></li>
-                <li data-match-route="/manage_vhosts"><a href="#/manage_vhosts">Manage Vhosts</a></li>
-            </ul>
-        </div>
-    </header>
+<header>
+  <div class="navbar navbar-default container" role="navigation" bs-navbar="">
+    <h1><a href="#/">Cars Santa Monica Am Happy</a></h1>
+    <ul class="nav navbar-nav">
+      <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li>
+      <li data-match-route="/create_happinstance"><a href="#/create_happinstance">Create
+        Happinstance</a></li>
+      <li data-match-route="/manage_vhosts"><a href="#/manage_vhosts">Manage Vhosts</a></li>
+    </ul>
+  </div>
+</header>
 
-    <div class="main container">
-        <div ng-view=""></div>
-    </div>
+<div class="main container">
+  <div ng-view=""></div>
+</div>
 
-    <footer>
-        <div class="container">
-            <img src="images/albertdealwithit.gif" alt=""/>
-            <p>Happily Spin Up Your Multi-Container Apps!</p>
-        </div>
-    </footer>
+<footer>
+  <div class="container">
+    <img src="images/albertdealwithit.gif" alt=""/>
+    <p>Happily Spin Up Your Multi-Container Apps!</p>
+  </div>
+</footer>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
-    <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/services/happinstance.js"></script>
-    <script src="scripts/services/application.js"></script>
-    <script src="scripts/controllers/header.js"></script>
-    <script src="scripts/controllers/happinstancedetail.js"></script>
-    <script src="scripts/controllers/createhappinstance.js"></script>
-    <script src="scripts/services/configoptions.js"></script>
-    <script src="scripts/services/vhosts.js"></script>
-    <script src="scripts/controllers/managevhosts.js"></script>
-    <script src="scripts/services/portinfo.js"></script>
-    <!-- endbuild -->
-    <script>
-    angular.module('dashboardApp').value('service_root', '');
-    angular.module('dashboardApp').value('happinstance_url', '/happinstances');
-    angular.module('dashboardApp').value('application_url', '/applications');
-    angular.module('dashboardApp').value('config_url', '/config_options');
-    angular.module('dashboardApp').value('portinfo_url', '/port_info');
-    angular.module('dashboardApp').value('vhosts_url', '/vhosts');
-    </script>
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+<script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/services/happinstance.js"></script>
+<script src="scripts/services/application.js"></script>
+<script src="scripts/controllers/header.js"></script>
+<script src="scripts/controllers/happinstancedetail.js"></script>
+<script src="scripts/controllers/createhappinstance.js"></script>
+<script src="scripts/services/configoptions.js"></script>
+<script src="scripts/services/vhosts.js"></script>
+<script src="scripts/controllers/managevhosts.js"></script>
+<script src="scripts/services/portinfo.js"></script>
+<!-- endbuild -->
+<script>
+  angular.module('dashboardApp')
+  .value('service_root', '')
+  .value('happinstance_url', '/happinstances')
+  .value('application_url', '/applications')
+  .value('config_url', '/config_options')
+  .value('portinfo_url', '/port_info')
+  .value('vhosts_url', '/vhosts');
+</script>
 </body>
 </html>

@@ -22,24 +22,10 @@ class Vhosts(object):
         :return:
         :rtype:
         """
-        applications = self.happinstancedb.get_application_db_names()
+        applications = self.happinstancedb.fetch_happ_names()
         vhosts = {application: self.happinstancedb[application].get('vhosts')
                   for application in applications}
         return vhosts
-
-    def _get_application_vhosts(self):
-        application_name = self.request.matchdict['application']
-        if application_name in self.happinstancedb:
-            return self.happinstancedb[application_name].get('vhosts', {})
-        else:
-            # if the application hasn't been created yet in the store, create
-            # it
-            self.happinstancedb.server.create(application_name)
-            return {}
-
-    def _save_vhosts(self, vhosts):
-        application_name = self.request.matchdict['application']
-        self.happinstancedb[application_name]['vhosts'] = vhosts
 
     @view(renderer='json')
     def get(self):
@@ -71,11 +57,35 @@ class Vhosts(object):
         """
         Allocate a particular vhost.
         TODO:: Maybe instead of T/F have it be the name of the happinstance?
-        :param vhost:
-        :type vhost:
-        :return:
-        :rtype:
+
+        Args:
+            vhost_name: 
+
+        Returns:
+
         """
         vhosts = self._get_application_vhosts()
         vhosts[vhost_name] = True
         self._save_vhosts(vhosts)
+
+    def _get_application_vhosts(self):
+        application_name = self.request.matchdict['application']
+        if application_name in self.happinstancedb:
+            return self.happinstancedb[application_name].get('vhosts', {})
+        else:
+            # Created new app store
+            self.happinstancedb.happinstance_json_server.create(application_name)
+            return {}
+
+    def _save_vhosts(self, vhosts):
+        """
+
+        Args:
+            vhosts:
+
+        Returns:
+
+        """
+        application_name = self.request.matchdict['application']
+        self.happinstancedb[application_name]['vhosts'] = vhosts
+
