@@ -30,3 +30,18 @@ def get_ports(request):
     project = request.validated['project']
     return {container.name: container.human_readable_ports
             for container in project.containers()}
+
+def _get_code_dirs(source_code_root):
+    """
+    We're returning a list of ALL folders here assuming that each one
+    is the source code root of one of happ components.
+    Args:
+        happ_root:
+
+    Returns:
+
+    """
+    real_root = get_real_path(source_code_root)
+    return os.listdir(real_root)
+
+
