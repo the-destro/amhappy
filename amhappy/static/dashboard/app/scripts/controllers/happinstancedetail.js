@@ -9,7 +9,7 @@
  */
 angular.module('dashboardApp')
 .controller('HappinstancedetailCtrl',
-  function ($scope, $routeParams, $location, Happinstance, PortInfo) {
+  function ($scope, $routeParams, Happinstance, PortInfo, $location) {
     const happinstance = {
       application: $routeParams.application,
       name: $routeParams.name
@@ -22,15 +22,12 @@ angular.module('dashboardApp')
     $scope.name = $routeParams.name;
     $scope.application = $routeParams.application;
     $scope.detail = Happinstance.get(happinstance);
-    $scope.port_info = PortInfo.get(happinstance);
-    console.log("GOT NEW PORT INFO???", $scope.port_info);
+    $scope.port_info = PortInfo.get(happinstance).$promise.then(refresh_callback);
 
     $scope.toJson = angular.toJson;
     $scope.toggleStatus = (status) => {
       const toggled = status === 'on' ? 'off' : 'on';
-      console.log(
-        "NOT CHANGING STATUS, BUT HERE IS THE PORT INFO:", $scope.port_info);
-      // Happinstance.changeStatus(happinstance, {action: toggled}, refresh_callback);
+      Happinstance.changeStatus(happinstance, {action: toggled}, refresh_callback);
     }
 
     $scope.delete = () =>
