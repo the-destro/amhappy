@@ -8,32 +8,52 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('CreatehappinstanceCtrl', function ($scope, $location, Application, Happinstance, ConfigOptions, Vhosts) {
-        Application.query(function(applications) {
-            $scope.applications = applications;
-        });
-        $scope.environments = {};
-        $scope.selectedApplication = '';
-        $scope.name = '';
-        $scope.toJson = angular.toJson;
-        $scope.isDefined = angular.isDefined;
-        $scope.config_options = ConfigOptions.get();
-        $scope.$watch(function () {return $scope.selectedApplication;},
-            function(selectedApplication) {
-                if (selectedApplication != "") {
-                    $scope.config = Application.get({application: selectedApplication});
-                    $scope.vhosts_available = Vhosts.get({'application': selectedApplication});
-                }
-            });
-        $scope.submit = function(){
-            angular.forEach($scope.environments, function(variables, image) {
-                angular.forEach(variables, function(value, variable){
-                  $scope.config[image]['environment'][variable] = value;
-                })
-            });
-            Happinstance.save({application:$scope.selectedApplication, name:$scope.name}, $scope.config, function(){
-                $location.url('/');
-            });
+.controller('CreatehappinstanceCtrl',
+  function ($scope, $location, Application, Happinstance, ConfigOptions, Vhosts) {
+    Application.query((applications) => $scope.applications = applications);
+    $scope.environments = {};
+    $scope.selectedApplication = '';
+    $scope.happinstanceName = '';
+    $scope.toJson = angular.toJson;
+    $scope.isDefined = angular.isDefined;
+    $scope.configs = ConfigOptions.get();
+    console.log("Is this a promise?", $scope.configs);
 
+    // Strip chars from name
+    $scope.$watch(
+      () => $scope.happinstanceName,
+      (name) => $scope.happinstanceName = name.replace(/[^a-zA-Z.]/g, '')
+    );
+
+    $scope.$watch(
+      () => $scope.selectedApplication,
+      (selectedApplication) => {
+        if (selectedApplication === "") return;
+        console.log("Configs? " , $scope.configs);
+        $scope.sourceCodeDirs = $scope.configs.source_code_dirs;
+
+        if ($scope.happinstanceName === '') {
+          $scope.happinstanceName = $scope.selectedApplication;
         }
+        const query = {application: selectedApplication}
+        console.log("Selected application is ", selectedApplication);
+        $scope.happConfig = Application.get(query);
+        $scope.vhosts = Vhosts.get(query);
+
+      });
+    $scope.submit = () => {
+      angular.forEach($scope.environments, (variables, image) => {
+        variables.forEach(
+          (value, variable) => {
+            console.log(`Setting {$image}:{$variable} to {$value}`);
+            $scope.happConfig[image]['environment'][variable] = value
+          }
+        )
+      });
+      Happinstance.save(
+        {application: $scope.selectedApplication, name: $scope.happinstanceName},
+        $scope.happConfig,
+        () => $location.url('/'));
+
+    }
   });

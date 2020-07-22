@@ -1,32 +1,57 @@
 <h2>Create Happinstance</h2>
-<label>Select an Application:</label>
-<select ng-model="selectedApplication" ng-options="application for application in applications">
-    <option value="">
-        ---------
-    </option>
-</select>
+<div class="tips">
+  <p>From the list of Happs below, select one and provide the additional information needed.</p>
+  <p>The information depends on the type of application. For instance:</p>
+  <ul>
+    <li>CPS only needs single INEK code repository checkout directory..</li>
+    <li>Whereas NC needs both the Pharaoh AND the INEK repository directories..</li>
+  </ul>
+</div>
 
 <div class="create">
-    <form ng-submit="submit()">
-        <div ng-repeat="(image, settings) in config">
-            <div ng-repeat="(variable, value) in settings.environment" class="create_setting">
-                <span  ng-if="variable.indexOf('DIR') > -1">{{variable}}
-                    <select ng-model="environments[image][variable]" ng-options="code_dir for code_dir in config_options.code_dirs">
--                            <option value=""></option>
--                        </select></span>
-                <span ng-if="variable.indexOf('HOST') > -1">{{variable}}
-                 <select ng-model="environments[image][variable]" ng-options="vhost as vhost for (vhost, status) in vhosts_available"></select>
--               </span>
-            </div>
-        </div>
+  <label>Select the Happlication to create a Happinstance from:</label>
+  <select
+    ng-model="selectedApplication"
+    ng-options="application for application in applications | orderBy">
+  </select>
+</div>
 
-        <div ng-hide="selectedApplication == ''">
-            <label>Happinstance Name:</label> <input type="text" ng-model="name"> <input type="submit" id="submit" value="Create">
+<div class="happinstance_box" ng-hide="selectedApplication == ''">
+  <form ng-submit="submit()">
+    <label>Provide a name for your new <b>{{selectedApplication}}</b> happenstance:</label>
+    <input type="text" ng-model="happinstanceName"/>
+    <div ng-repeat="(image, settings) in happConfig">
+      <div class="image">
+        <div>Parameters for <b>{{image|uppercase}}</b>:</div>
+        <div ng-repeat="(configParam, value) in settings.environment" class="create_setting">
+
+
+          <div ng-if="configParam.indexOf('DIR') !== -1">
+            <div class="note">Choose your source code for <b>{{image|uppercase}}</b>:</div>
+            {{configParam}}:
+            <select ng-model="environments[image][configParam]"
+                    ng-options="dir for dir in sourceCodeDirs | orderBy">
+              <option value=""></option>
+            </select>
+          </div>
+
+          <div ng-if="configParam.indexOf('HOST') !== -1">
+            <div class="note">Specify a hostname for <b>{{image|uppercase}}</b>:</div>
+            {{configParam}}:
+            <select ng-model="environments[image][configParam]"
+                    ng-options="vhost as vhost for (vhost, status) in vhosts"></select>
+          </div>
+
+
         </div>
-        <p class="note">Notes on naming: Use only letters and numbers. No spaces, hyphens, or underscores!</p>
-    </form>
-    <pre>
-        {{toJson(config, 4)}}
-    </pre>
+      </div>
+    </div>
+    <div></div>
+    <div class="create">
+      Ready to make a happinstance?  &nbsp;&nbsp;<input type="submit" id="submit" value="Create"/>
+    </div>
+  </form>
+  <div >Here's the Happinstance composition file for the above parameters:</div>
+  <pre>{{toJson(happConfig, 4)}}</pre>
 </div>
 
