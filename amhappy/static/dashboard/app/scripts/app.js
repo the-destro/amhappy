@@ -18,16 +18,18 @@ angular
     'ngTouch',
     'mgcrea.ngStrap'
   ])
-  .config(function ($routeProvider, $locationProvider) {
-    $locationProvider.hashPrefix('');
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
             templateUrl: 'views/main.html',
             controller: 'MainCtrl',
             resolve: {
-                happinstances: (Happinstance) => Happinstance.query().$promise
+                happinstances: function (Happinstance) {
+                    return Happinstance.query().$promise;
+                }
             }
-        })
+        }
+    )
         .when('/happinstance_detail/:application/:name', {
             templateUrl: 'views/happinstancedetail.html',
             controller: 'HappinstancedetailCtrl'

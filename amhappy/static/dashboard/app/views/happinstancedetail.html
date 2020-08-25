@@ -1,27 +1,15 @@
-<h1>Happinstance Details</h1>
-<h2>Happlication: {{application}}/{{name}}
-  <a class="btn_remove"
-     ng-click="delete()"><span>Decomission?</span><em>Do it!</em></a>
-</h2>
+<h2>{{name}} Details</h2>
+<p>Application: <strong>{{application}}</strong></p>
+<p>Name: <strong>{{name}}</strong> <button ng-click="delete()" class="btn_remove"><span>Remove?</span><em>Kill it!</em></button></p>
+<p>Status: <a class="status_toggle" ng-click="toggleStatus(detail.status)"> {{detail.status}}</a></p>
 
-<h3>The happinstance is:
-  <span class="status_toggle"
-        ng-class="detail.status"
-        ng-click="toggleStatus(detail.status)">{{detail.status}}</span>
-</h3>
 
-<div ng-if="detail.status=='on'">
-  <h3>Active {{name}} Container Names and Ports:</h3>
-  <div class="details_namesports">
-    <div ng-repeat="(container, port) in port_info">
-      <span>Container: <b>{{container}}</b></span> ->
-      <span>Port: <b>{{port}}</b></span>
-    </div>
-  </div>
-</div>
+<h3>Real Container Names and Ports</h3>
+<ul class="details_namesports">
+    <li ng-repeat="(container, port) in port_info">{{container}}: {{port}}</li>
+</ul>
 
-<h3>{{name}} Configurations:</h3>
 <div ng-repeat="(container, config) in detail.config" class="details_config">
-  <h4>{{container}}</h4>
-  <pre>{{toJson(config, 2)}}</pre>
+    <h4>{{container}}</h4>
+    <pre>{{toJson(config, 2)}}</pre>
 </div>

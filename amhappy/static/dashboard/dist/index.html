@@ -1,52 +1,8 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Am Happy - Happily Spin Up Your Multi-Container Apps</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="stylesheet" href="styles/main.0d1f329d.css">
-  <link
-    href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300'
-    rel='stylesheet'>
-  <link
-    href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300'
-    rel='stylesheet'>
-</head>
-<body ng-app="dashboardApp">
-<header>
-  <div class="navbar navbar-default container" role="navigation" bs-navbar="">
-    <h1><a href="#/">Cars Santa Monica Am Happy</a></h1>
-    <ul class="nav navbar-nav">
-      <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li>
-      <li data-match-route="/create_happinstance"><a href="#/create_happinstance">Create
-        Happinstance</a></li>
-      <li data-match-route="/manage_vhosts"><a href="#/manage_vhosts">Manage Vhosts</a></li>
-    </ul>
-  </div>
-</header>
-
-<div class="main container">
-  <div ng-view=""></div>
-</div>
-
-<footer>
-  <div class="container">
-    <img src="images/albertdealwithit.gif" alt=""/>
-    <p>Happily Spin Up Your Multi-Container Apps!</p>
-  </div>
-</footer>
-<script src="scripts/vendor.b62a7602.js"></script>
-<script src="scripts/scripts.cb9e60e1.js"></script>
-<script>
-  angular.module('dashboardApp')
-  .value('service_root', '')
-  .value('happinstance_url', '/happinstances')
-  .value('application_url', '/applications')
-  .value('config_url', '/config_options')
-  .value('portinfo_url', '/port_info')
-  .value('vhosts_url', '/vhosts');
-</script>
-</body>
-</html>
+<!DOCTYPE html> <html class="no-js"> <head> <meta charset="utf-8"> <title>Docker Dashboard</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/main.0d1f329d.css"> <link href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300" rel="stylesheet" type="text/css"> <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300" rel="stylesheet" type="text/css">  <body ng-app="dashboardApp"> <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <header> <div class="navbar navbar-default container" role="navigation" bs-navbar=""> <h1><a href="#/">Cars SM - Docker Dashboard</a></h1> <ul class="nav navbar-nav"> <li data-match-route="/?(navbar)?"><a href="#/">Home</a></li> <li data-match-route="/create_happinstance"><a href="#/create_happinstance">Create Happinstance</a></li> <li data-match-route="/manage_vhosts"><a href="#/manage_vhosts">Manage Vhosts</a></li> </ul> </div> </header> <div class="main container"> <div ng-view=""></div> </div> <footer> <div class="container"> <img src="images/albertdealwithit.7e5b7802.gif"> <p>Deal with it.</p> </div> </footer> <script src="scripts/vendor.b62a7602.js"></script> <script src="scripts/scripts.cb9e60e1.js"></script> <script>angular.module('dashboardApp').value('service_root', '');
+        angular.module('dashboardApp').value('happinstance_url', '/happinstances');
+        angular.module('dashboardApp').value('application_url', '/applications');
+        angular.module('dashboardApp').value('config_url', '/config_options');
+        angular.module('dashboardApp').value('portinfo_url', '/port_info');
+        angular.module('dashboardApp').value('vhosts_url', '/vhosts');</script>  

@@ -1,43 +1,26 @@
 # -*- coding: utf-8 -*-
 from cornice.resource import resource, view
-from amhappy.utility.happ_finder import fetch_happs
-from amhappy.utility.happ_finder import get_happ_configuration
+from amhappy.utility.config_parser import find_configs
+from amhappy.utility.config_parser import get_config
 
-
-import logging
-logger=logging.getLogger('api')
-
-@resource(collection_path='/applications',
-          path='/applications/{application}',
-          cors_enabled=True,
-          cors_origins=('*',))
+@resource(collection_path='/applications', path='/applications/{application}',
+          cors_enabled=True, cors_origins=('*',))
 class Application(object):
     """
     Base application class that holds the default configuration of a
     docker-compose project. Not much during initially but will be expanded upon
     """
-
-
     def __init__(self, request):
-        """
-        Endpoint for the list of happs.
-
-        Args:
-            request:
-        """
         self.request = request
-        settings = self.request.registry.settings
-        self.happs = fetch_happs(
-            settings['happ_repo_root'],
-            settings['happ_config_filename']) # Generally docker_compose.yml
+        config_root = self.request.registry.settings['config_root']
+        config_file = self.request.registry.settings['config_file']
+        self.configs = find_configs(config_root, config_file)
 
     def collection_get(self):
-        applications = self.happs.keys()
-        logger.info("Applications %s", applications)
-        return self.happs.keys()
+        return self.configs.keys()
 
     @view(renderer='json')
     def get(self):
         application_name = self.request.matchdict['application']
-        config = get_happ_configuration(self.happs[application_name])
+        config = get_config(self.configs[application_name])
         return config

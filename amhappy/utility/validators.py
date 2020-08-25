@@ -67,7 +67,7 @@ def valid_happinstance(application, name, happinstance_db, request):
             raise GeneralError("vhosts is a reserved name")
         request.validated['project'] = _fetch_project(name, config)
         request.validated['config'] = config
-    except (ConfigurationError, ConfigError) as e:
+    except (ConfigurationError, ConfigError), e:
         raise GeneralError(e.message)
 
 

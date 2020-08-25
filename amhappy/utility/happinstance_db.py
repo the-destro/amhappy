@@ -1,58 +1,39 @@
 # -*- coding: utf-8 -*-
 import json
-from couchdb import Server as CouchServer
-
-import logging
-
-logger = logging.getLogger('utility')
-
-"""
-Live Happinstance data access class.
-
-Instantiate the connection to the happinstance (json) database server and
-provide api for connectivity.
- 
-"""
+from couchdb import Server
 
 
 class HappinstanceDB(object):
 
-    def __init__(self, request=None, server=CouchServer):
+    def __init__(self, request=None):
         """
-        A "DB" which is acting as a collection of the happinstances.
-
-        TODO: Allow login logic that pulls from the ini
-
-        Args:
-            request:
+        Will eventually allow login logic that pulls from the ini
+        :param request:
+        :type request:
+        :return:
+        :rtype:
         """
-        logger.info("CREATING HAPPINSTANCE DB")
-        self.happinstance_json_server = server()
+        self.server = Server()
 
     def __getitem__(self, application_name):
-        return self.happinstance_json_server[application_name]
+        return self.server[application_name]
 
     def __contains__(self, name):
-        return name in self.happinstance_json_server
+        return name in self.server
 
-    def __json__(self, request):
-        happ_names = self.fetch_happ_names()
-        happinstances = {}
-        for happ_name in happ_names:
-            config = self.happinstance_config(happ_name)
-            logger.info("HAPP NAME CONFIG FOR %s IS: %s", happ_name, config)
-            happinstance = [result.doc for result in config if result.id != 'vhosts']
-            happinstances[happ_name] = happinstance
-        return happinstances
-
-    def fetch_happ_names(self):
-        # The result is a tuple with the body being the third element
-        dbs_in_json = self.happinstance_json_server.resource.get('_all_dbs')[
-            2].read()
-        logger.info("Database JSON is: %s", dbs_in_json)
-        dbs = json.loads(dbs_in_json)
+    def get_application_db_names(self):
+        # the result is a tuple with the body being the third element
+        body_string = self.server.resource.get('_all_dbs')[2].read()
+        dbs = json.loads(body_string)
         return [db for db in dbs if not db.startswith('_')]
 
-    def happinstance_config(self, happinstance_name):
-        return self[happinstance_name].view('_all_docs', include_docs=True)
-
+    def __json__(self, request):
+        dbs = self.get_application_db_names()
+        all_happinstances = {}
+        for db_name in dbs:
+            all_happinstances[db_name] = []
+            for result in self[db_name].view('_all_docs', include_docs=True):
+                # remove the special vhosts entry as it is not an application
+                if result.id != 'vhosts':
+                    all_happinstances[db_name].append(result.doc)
+        return all_happinstances

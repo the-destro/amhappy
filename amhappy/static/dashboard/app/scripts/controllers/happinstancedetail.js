@@ -8,28 +8,29 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-.controller('HappinstancedetailCtrl',
-  function ($scope, $routeParams, Happinstance, PortInfo, $location) {
-    const happinstance = {
-      application: $routeParams.application,
-      name: $routeParams.name
-    }
-    console.log("Happinstance Info: ", happinstance);
-    const refresh_callback = () => {
-      $scope.detail = Happinstance.get(happinstance);
-      $scope.port_info = PortInfo.get(happinstance);
-    }
-    $scope.name = $routeParams.name;
-    $scope.application = $routeParams.application;
-    $scope.detail = Happinstance.get(happinstance);
-    $scope.port_info = PortInfo.get(happinstance).$promise.then(refresh_callback);
-
-    $scope.toJson = angular.toJson;
-    $scope.toggleStatus = (status) => {
-      const toggled = status === 'on' ? 'off' : 'on';
-      Happinstance.changeStatus(happinstance, {action: toggled}, refresh_callback);
-    }
-
-    $scope.delete = () =>
-      Happinstance.delete(happinstance, () => $location.url('/'));
+  .controller('HappinstancedetailCtrl', function ($scope, $routeParams, $location, Happinstance, PortInfo) {
+        var location = {application:$routeParams.application,
+                        name:$routeParams.name},
+            detail_refresh = function() {
+                $scope.detail = Happinstance.get(location);
+                $scope.port_info = PortInfo.get(location);
+            };
+        $scope.name = $routeParams.name;
+        $scope.application = $routeParams.application;
+        $scope.toJson = angular.toJson;
+        $scope.toggleStatus = function(status) {
+            if (status == 'on'){
+                Happinstance.changeStatus(location, {action:'off'}, detail_refresh);
+            }
+            else {
+                Happinstance.changeStatus(location, {action:'on'}, detail_refresh);
+            }
+        };
+        $scope.detail = Happinstance.get(location);
+        $scope.port_info = PortInfo.get(location);
+        $scope.delete = function(){
+            Happinstance.delete(location, function() {
+                $location.url('/');
+            })
+        }
   });

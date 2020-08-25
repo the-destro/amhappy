@@ -6,324 +6,270 @@ body {
 }
 
 header {
-  padding: 20px 0;
-  background-color: #222;
+    padding: 20px 0;
+    background-color: #222;
 }
 
 footer {
-  border-top: 1px solid #ccc;
-  color: #666;
-  font-size: .85em;
-  padding: 20px 0;
-  text-align: center;
+    border-top: 1px solid #ccc;
+    color: #666;
+    font-size: .85em;
+    padding: 20px 0;
+    text-align: center;
 }
 
 footer img,
 footer p {
-  display: inline-block;
-  vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 footer img {
-  width: 50px;
+    width: 50px;
 }
 
 footer p {
-  margin: 0 0 0 1em;
-  font-style: italic;
+    margin: 0 0 0 1em;
+    font-style: italic;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-  text-decoration: none;
-  color: #4781AA;
+    text-decoration: none;
+    color: #4781AA;
 }
 
 select, input {
-  font-size: 1em;
-  padding: .25em;
+    font-size: 1em;
+    padding: .25em;
 }
 
 input[type="submit"] {
-  border: 0;
-  color: #fff;
-  background-color: #333;
-  font-size: 0.9em;
-  cursor: pointer;
-  padding: .35em 1em;
-  border-radius: 1em;
-  text-transform: uppercase;
-  font-weight: 700;
+    border: 0;
+    color: #fff;
+    background-color: #333;
+    font-size: 0.9em;
+    cursor: pointer;
+    padding: .35em 1em;
+    border-radius: 1em;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 input[type="submit"]:hover {
-  background-color: #1E67ED;
+    background-color: #1E67ED;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .navbar a {
-  color: #fff;
+    color: #fff;
 }
 
 .navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar li {
-  display: inline-block;
-  margin: 0 .25em .25em;
+    display: inline-block;
+    margin: 0 .25em .25em;
 }
 
 .navbar li a {
-  display: inline-block;
-  padding: .25em 1em;
-  text-transform: uppercase;
-  border-radius: 1em;
+    display: inline-block;
+    padding: .25em 1em;
+    text-transform: uppercase;
+    border-radius: 1em;
 }
 
 .navbar li a:hover,
 .navbar .active a {
-  background: #666;
+    background: #666;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Roboto Condensed";
-  text-transform: uppercase;
-  color: #333;
+    font-family: "Roboto Condensed";
+    text-transform: uppercase;
+    color: #333;
 }
 
 h1 {
-  font-size: 40px;
-  margin: 0 0 14px;
-  font-weight: 300;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: 40px;
+    margin: 0 0 14px;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 h2 {
-  font-size: 32px;
-  font-weight: 700;
+    font-size: 32px;
+    font-weight: 700;
 }
 
 h4 {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 pre {
-  background-color: #222;
-  color: #ddd;
-  padding: 10px;
-  font-size: 16px;
+    background-color: #222;
+    color: #ddd;
+    padding: 10px;
+    font-size: 16px;
 }
 
 .main {
-  margin: 20px auto 60px;
-}
-
-.main .tips {
-  padding: 10px 10px 10px 10px;
-  margin-top: -20px;
-  margin-bottom: 20px;
-  background-color: whitesmoke;
-  font-style: italic;
-  border-radius: .5em;
-}
-
-.main .tips p {
-  padding: 0;
-  margin: 0;
-}
-
-.main .tips ul {
-  padding-left: 20px;
+    margin: 20px auto 60px;
 }
 
 .app_wrap {
-  margin: 0 0 30px;
+    margin: 0 0 30px;
 }
 
 .app_title {
-  color: #fff;
-  background-color: #e64e4e;
-  padding: 10px;
-  margin: 0 0 2px;
-  font-size: 22px;
-  letter-spacing: 0.08em;
-  font-weight: 400;
+    color: #fff;
+    background-color: #e64e4e;
+    padding: 10px;
+    margin: 0 0 2px;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    font-weight: 400;
 }
 
 .instance_wrap {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 50%;
-  text-align: center;
-  padding: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
 }
 
 .instance_wrap a {
-  font-family: "Roboto";
-  display: block;
-  color: #444;
-  text-align: center;
-  padding: 1em;
-  letter-spacing: 0.05em;
-  text-transform: none;
-  background-color: #eee;
-  width: auto;
-  box-sizing: border-box;
-  font-size: 1.25em;
-  font-weight: 500;
-  margin: 0 auto;
+    font-family: "Roboto";
+    display: block;
+    color: #444;
+    text-align: center;
+    padding: 1em;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    background-color: #eee;
+    width: auto;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-weight: 500;
+    margin: 0 auto;
 }
 
 .instance_wrap a:hover {
-  color: #fff;
-  background: #e64e4e;
-  transition: background .25s ease-in-out;
-  -moz-transition: background .25s ease-in-out;
-  -webkit-transition: background .25s ease-in-out;
+    color: #fff;
+    background:#e64e4e;
+    transition: background .25s ease-in-out;
+    -moz-transition: background .25s ease-in-out;
+    -webkit-transition: background .25s ease-in-out;
 }
 
 .app_wrap:nth-child(2) .app_title,
 .app_wrap:nth-child(2) .instance_wrap a:hover {
-  background: #222;
+    background: #222;
 }
 
 .app_wrap:nth-child(3) .app_title,
 .app_wrap:nth-child(3) .instance_wrap a:hover {
-  background: #1E67ED;
+    background: #1E67ED;
 }
 
 .app_wrap:nth-child(4) .app_title,
 .app_wrap:nth-child(4) .instance_wrap a:hover {
-  background: #2bbf74;
+    background: #2bbf74;
 }
 
 .app_wrap:nth-child(5) .app_title,
 .app_wrap:nth-child(5) .instance_wrap a:hover {
-  background: #ffa500;
+    background: #ffa500;
 }
 
 .instance_wrap a span {
-  display: block;
-  font-size: .7em;
-  background-color: rgba(0, 0, 0, .1);
-  margin: 10px auto 0;
-  padding: 5px;
-  width: 40%;
+    display: block;
+    font-size: .7em;
+    background-color: rgba(0,0,0,.1);
+    margin: 10px auto 0;
+    padding: 5px;
+    width: 40%;
 }
 
-.status_toggle, .btn_remove {
-  cursor: pointer;
-  display: inline-block;
-  background-color: #333;
-  padding: .05em 1em;
-  margin: 0 .15em;
-  border-radius: 1em;
-  color: #fff;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
+.status_toggle,
+.btn_remove {
+    cursor: pointer;
+    display: inline-block;
+    background-color: #333;
+    padding: .35em 1em;
+    border-radius: 1em;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.status_toggle.on {
-  background-color: green;
+.status_toggle:hover  {
+    background-color: #1E67ED;
 }
-
-.status_toggle.off {
-  background-color: red;
-}
-
-.status_toggle:hover {
-  background-color: #1E67ED;
-}
-
-.status_toggle {
-  width: 75px;
-}
-
 
 .btn_remove {
-  position: relative;
-  top: -6px;
-  background-color: #E04C4A;
-  font-size: 0.6em;
-  width: 120px;
+    border: 0;
+    background-color: #E04C4A;
+    font-size: 0.9em;
+    border-radius: 1.4em;
+    width: 120px;
 }
 
 .btn_remove em {
-  display: none;
+    display: none;
 }
 
 .btn_remove:hover em {
-  display: inline;
+    display: inline;
 }
 
 .btn_remove:hover span {
-  display: none;
+    display: none;
 }
 
 .details_config {
-  margin: 0 0 50px;
+    margin: 0 0 50px;
 }
 
 .details_config h4,
 .details_config pre {
-  margin: 0;
+    margin: 0;
 }
 
 .details_namesports,
 .manage_list {
-  background-color: #f1f1f1;
-  list-style-position: inside;
-  padding: 20px;
-  margin-bottom: 30px;
+    background-color: #f1f1f1;
+    list-style-position: inside;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 .details_namesports li,
 .manage_list li {
-  margin: 0 0 .9em;
+    margin: 0 0 .9em;
 }
 
 .note {
-  background-color: lightgoldenrodyellow;
-  padding: .5em;
-  font-size: .9em;
-  border-radius: 3px;
-  margin-bottom: 6px;
-}
-
-.happinstance_box {
-  margin-top: 10px;
-  border: #2bbf74 solid 1px;
-  padding: .5em;
-
-}
-
-.happinstance_box .image {
-  margin-top: 10px;
-  border: #1E67ED dotted .5px;
-  padding: .5em;
-}
-
-.happinstance_box .create {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: #1E67ED dotted .5px;
-  padding: .5em;
+    background: pink;
+    padding: .5em;
+    font-size: .9em;
 }
 
 .create_setting {
-  margin: 1em 0;
+    margin: 1em 0;
 }
 
 /*---------------
@@ -331,28 +277,28 @@ Responsive Stuff
 ----------------*/
 
 @media screen and (min-width: 1000px) {
-
-  .container {
-    width: 960px;
-  }
-
-  .instance_wrap {
-    width: 33.33%;
-  }
+    
+    .container {
+        width: 960px;
+    }
+    
+    .instance_wrap {
+        width: 33.33%;
+    }
 }
 
 @media screen and (max-width: 550px) {
-
-  h1 {
-    font-size: 30px;
-  }
-
-  .container {
-    width: 90%;
-  }
-
-  .instance_wrap {
-    width: 100%;
-    padding: 10px 0;
-  }
+    
+    h1 {
+        font-size: 30px;
+    }
+    
+    .container {
+        width: 90%;
+    }
+    
+    .instance_wrap {
+        width: 100%;
+        padding: 10px 0;
+    }
 }
