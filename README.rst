@@ -1,10 +1,9 @@
-AmHappy
+amhappy
 =======
 
-AmHappy is all about making QA, dev, and designers lives happier by making
-it easier to spin up sandboxes of web applications.
-
-THIS IS Proof Of Concept quality code!
+amhappy is all about making QA, dev, and designers lives happier by making
+it easier to spin up sandboxes of web applications. THIS IS Proof Of Concept
+quality code!
 
 -----------
 Terminology
@@ -12,7 +11,7 @@ Terminology
 * Container: A packaged "machine" as defined by a Dockerfile
 * Application: A group of Containers, defined in a fig.yml or a docker-compose.yml, that allow a system to operate. For example Mysql+Apache/PHP(dependencies)+Code containers is an Application
 * Happinstance: It is a "Happy Instance" of an application with a specific configuration. Things like port, specific branch and VHOST are all part of a Happinstance's configuration.
-* Happstore: Our repository of configured applications.
+* Happstore: Our repository of configured applications on Git.(WIP, currently a directory)
 
 
 --------------------
@@ -21,8 +20,9 @@ General Architecture
 
 amhappy is a REST-ish webserver written in Pyramid using Cornice on the backend with an AngularJS based web UI.
 
-Setup Instructions
+Setup instructions
 ##################
+(WIP)
 To achieve this magical land of happiness, some initial setup is required.
 
 1. Install Docker
@@ -34,6 +34,7 @@ To achieve this magical land of happiness, some initial setup is required.
 
 Usage
 #####
+
 The use case flow should be pretty straightforward
 
 ---------

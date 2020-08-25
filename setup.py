@@ -17,7 +17,7 @@ requires = [
 ]
 
 setup(name='amhappy',
-      version='0.2',
+      version=0.1,
       description='amhappy',
       long_description=README,
       classifiers=[
