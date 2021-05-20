@@ -15,7 +15,6 @@ requires = [
     'CouchDB',
     'setuptools==28.8.0'
 ]
-
 setup(name='amhappy',
       version=0.1,
       description='amhappy',
