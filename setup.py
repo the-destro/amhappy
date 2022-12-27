@@ -13,7 +13,7 @@ requires = [
     'pyramid_debugtoolbar',
     'docker-compose<1.4.0',
     'CouchDB',
-    'setuptools==28.8.0'
+    'setuptools==65.5.1'
 ]
 
 setup(name='amhappy',
